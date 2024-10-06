@@ -1,0 +1,26 @@
+import discord
+from discord.ext import commands
+
+token = "MTI4MzQ1NTcyNjA1NjExMjEyOA.GBS_Qj.6Gt4nvAyJN7GWQFRoNI7DbQydPcq-JMcmIyWJc"
+
+
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='/', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send("Привет! Я бот EcoBot#7549")
+
+
+
+@bot.command(name='eco')  
+async def eco(ctx):
+    await ctx.send("Чем я могу помочь природе: простые шаги для улучшения экологии на планете / Экономия воды и электроэнергии / Отказ от пластика / Сортировка мусора / Использовать правильные батарейки / Давать вещам вторую жизнь / Отказаться от пакетированного чая / Убирать за собой после пикника / Участвовать в экологических движениях")
+
+# Запускаем бота
+bot.run(token)
